@@ -1,0 +1,35 @@
+#use <conio>
+#use <string>
+
+string convert_roman_numeral(string roman){
+    int number = 0;
+    int length_roman = string_length(roman);
+    for(int i=0; i<length_roman; i++){
+        string curr_roman_char = string_sub(roman,i,i+1);
+        if(string_equal(curr_roman_char,"I")){
+            number += 1;
+        }  
+        if(string_equal(curr_roman_char,"V")){
+            number += 5;
+        } 
+        if(string_equal(curr_roman_char,"X")){
+            number += 10;
+        }  
+        if(string_equal(curr_roman_char,"C")){
+            number += 100;
+        }  
+    }
+    
+    return string_fromint(number);
+
+}
+
+int main() {
+  string latin_number = "";
+  println("--------------------");
+  string roman_number =  readline();
+  latin_number = convert_roman_numeral(roman_number);
+  println(latin_number);
+  println("--------------------");
+  return 0;
+}
