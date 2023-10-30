@@ -1,0 +1,52 @@
+#use <conio>
+#use <string>
+
+string convert_roman_numeral(string roman){
+    int number = 0;
+    int length_roman = string_length(roman);
+    for(int i=0; i<length_roman; i++){
+         printf("number: %d\n", number);
+        string prev_roman_char = "";
+        string curr_roman_char = string_sub(roman,i,i+1);
+        if (i > 0){
+            printf("i: %d",i);
+            prev_roman_char = string_sub(roman,i-1,i);
+            if(string_equal(prev_roman_char,"I") && !(string_equal(curr_roman_char,"I"))){
+                number -= 2;
+                println("-2");
+            }  
+        }    
+
+        if(string_equal(curr_roman_char,"I")){
+            number += 1;
+            printf("number I: %d\n", number);
+        }  
+        if(string_equal(curr_roman_char,"V")){
+            number += 5;
+            printf("number V: %d\n", number);
+        } 
+        if(string_equal(curr_roman_char,"X")){
+            number += 10;
+            printf("number X: %d\n", number);
+        }  
+        if(string_equal(curr_roman_char,"C")){
+            number += 100;
+            printf("number C: %d\n", number);
+        }  
+        
+    }
+    
+    return string_fromint(number);
+
+}
+
+int main() {
+  string latin_number = "";
+  println("--------------------");
+  string roman_number =  readline();
+  latin_number = convert_roman_numeral(roman_number);
+  println(latin_number);
+  println("--------------------");
+
+  return 0;
+}

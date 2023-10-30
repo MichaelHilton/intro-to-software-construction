@@ -1,0 +1,7 @@
+int main(){
+    assert(string_equal(convert_roman_numeral("I"), "1"));
+    assert(string_equal(convert_roman_numeral("V"), "5"));
+    assert(string_equal(convert_roman_numeral("VI"), "5"));
+
+    return 0;
+}
